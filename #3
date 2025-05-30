@@ -1,0 +1,22 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter dates ");
+        string[] parts = Console.ReadLine().Split(',');
+        DateTime d1 = DateTime.Parse(parts[0].Trim());
+        DateTime d2 = DateTime.Parse(parts[1].Trim());
+        DateTime d3 = DateTime.Parse(parts[2].Trim());
+        int minYear = Math.Min(d1.Year, Math.Min(d2.Year, d3.Year));
+        Console.WriteLine("The earliest year " + minYear);
+        Console.WriteLine("Spring dates ");
+        if (d1.Month >= 3 && d1.Month <= 5) Console.WriteLine(d1.ToString("dd.MM.yyyy"));
+        if (d2.Month >= 3 && d2.Month <= 5) Console.WriteLine(d2.ToString("dd.MM.yyyy"));
+        if (d3.Month >= 3 && d3.Month <= 5) Console.WriteLine(d3.ToString("dd.MM.yyyy"));
+        DateTime latest = d1;
+        if (d2 > latest) latest = d2;
+        if (d3 > latest) latest = d3;
+        Console.WriteLine("The latest date " + latest.ToString("dd.MM.yyyy"));
+    }
+}
