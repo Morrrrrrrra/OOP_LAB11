@@ -1,0 +1,21 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a string of 1 and 0 ");
+        string input = Console.ReadLine();
+        Console.Write("Set position ");
+        int n = int.Parse(Console.ReadLine());
+        char[] chars = input.ToCharArray();
+        for (int i = n - 1; i < chars.Length; i++)
+        {
+            if (chars[i] == '0')
+            chars[i] = '1';
+            else if (chars[i] == '1')
+            chars[i] = '0';
+        }
+        string result = new string(chars);
+        Console.WriteLine("Result " + result);
+    }
+}
